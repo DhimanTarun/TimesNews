@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+
+        <variable
+            name="mMostViewedData"
+            type="com.timesnews.app.model.MostViewedNews.Result" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/newsIV"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/newsTitleTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{mMostViewedData.title}"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@+id/arrowIV"
+            app:layout_constraintStart_toEndOf="@+id/newsIV"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/newsAuthorNameTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:text="@{mMostViewedData.byline}"
+            android:textColor="@color/dark_gray"
+            app:layout_constraintEnd_toEndOf="@id/newsTitleTV"
+            app:layout_constraintStart_toStartOf="@id/newsTitleTV"
+            app:layout_constraintTop_toBottomOf="@+id/newsTitleTV" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/createdDateTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/calendar_month"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            android:text="@{mMostViewedData.publishedDate}"
+            android:textColor="@color/dark_gray"
+            app:layout_constraintEnd_toEndOf="@id/newsTitleTV"
+            app:layout_constraintTop_toBottomOf="@+id/newsAuthorNameTV" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/arrowIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
